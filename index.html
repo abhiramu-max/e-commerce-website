@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopBlackWhite - Multipage Single File</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #000;
+      line-height: 1.6;
+    }
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #555;
+    }
+    header, footer {
+      background-color: #000;
+      color: #fff;
+      padding: 1em 2em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header nav a, footer nav a {
+      margin: 0 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1em 2em;
+    }
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+    button {
+      background-color: #000;
+      color: #fff;
+      border: 2px solid #000;
+      padding: 10px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: #fff;
+      color: #000;
+      border-color: #000;
+    }
+    section {
+      padding: 3em 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Header specifics */
+    .logo {
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+
+    /* Home Page Sections */
+    .hero {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 6em 2em;
+    }
+    .hero h1 {
+      color: #fff;
+      font-size: 3em;
+      margin-bottom: 1em;
+    }
+    .hero p {
+      font-size: 1.3em;
+      max-width: 600px;
+      margin: 0 auto 1.5em;
+    }
+    .hero button {
+      border-radius: 30px;
+      padding: 15px 40px;
+      font-size: 1.1em;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2em;
+    }
+    .category-item {
+      background: #f0f0f0;
+      padding: 2em;
+      border-radius: 6px;
+      text-align: center;
+      flex: 1 1 220px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .category-item:hover {
+      background: #ddd;
+    }
+    .category-item h3 {
+      margin-top: 1em;
+      font-weight: 700;
+    }
+    .catalogue {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2em;
+    }
+    .product-card {
+      border: 1px solid #000;
+      border-radius: 5px;
+      padding: 1em;
+      text-align: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 1em;
+    }
+    .product-card h4 {
+      margin-bottom: 0.5em;
+      font-weight: 700;
+    }
+    .product-card p {
+      font-weight: 600;
+      margin-bottom: 1em;
+    }
+    .product-card button {
+      border-radius: 20px;
+    }
+
+    .about-us {
+      text-align: center;
+    }
+    .about-us p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.1em;
+      line-height: 1.55;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;    
+      gap: 1em;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 220px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    .companies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+      align-items: center;
+    }
+    .company-logo {
+      width: 140px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+    }
+    .company-logo:hover {
+      filter: none;
+    }
+    .testimonial {
+      max-width: 700px;
+      margin: 0 auto;
+      font-style: italic;
+      font-size: 1.2em;
+      color: #333;
+      text-align: center;
+    }
+    .testimonial p {
+      margin-bottom: 1em;
+    }
+    .testimonial cite {
+      font-weight: 700;
+      display: block;
+      color: #000;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    form label {
+      font-weight: 600;
+    }
+    form input, form textarea {
+      padding: 10px;
+      border: 1px solid #000;
+      border-radius: 4px;
+      font-size: 1em;
+      resize: vertical;
+    }
+    form button {
+      align-self: flex-start;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      border-top: 1px solid #fefdfd;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+  background: #000;
+  color: #fff;
+}
+
+footer nav a {
+  color: #fff;
+}
+
+footer nav a:hover {
+  color: #eee;
+}
+
+    /* Navigation mobile toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 64px;
+        right: 0;
+        width: 200px;
+        padding: 1em;
+      }
+      nav.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" style="cursor:pointer; color:white;" onclick="showPage('home')">ShopBlackWhite</div>
+<div class="menu-toggle" id="menu-toggle" style="color:white;">&#9776;</div>
+<nav id="nav-menu">
+  <a style="color:white;" onclick="showPage('home')">Home</a>
+  <a style="color:white;" onclick="showPage('categories')">Categories</a>
+  <a style="color:white;" onclick="showPage('gallery')">Gallery</a>
+  <a style="color:white;" onclick="showPage('about')">About Us</a>
+  <a style="color:white;" onclick="showPage('recentOrders')">Recent Orders</a>
+  <a style="color:white;" onclick="showPage('cart')">Cart</a>
+  <a style="color:white;" onclick="showPage('privacyPolicy')">Privacy Policy</a>
+  <a style="color:white;" onclick="showPage('contact')">Contact Us</a>
+</nav>
+
+  </header>
+
+  <main>
+
+    <!-- Home Page -->
+    <section id="home" class="page">
+      <section class="hero">
+        <div class="container">
+          <h1>Welcome to ShopBlackWhite</h1>
+          <p>Your one-stop black & white themed online store experience.</p>
+          <button onclick="showPage('categories')">Shop Now</button>
+        </div>
+      </section>
+
+      <section class="categories container">
+        <div class="category-item" onclick="showPage('categories')">Fashion</div>
+        <div class="category-item" onclick="showPage('categories')">Electronics</div>
+        <div class="category-item" onclick="showPage('categories')">Home & Living</div>
+      </section>
+
+      <section class="catalogue container" aria-label="Product Catalogue">
+        <article class="product-card">
+          <img src="https://via.placeholder.com/220x180?text=Men+Jacket" alt="Men Jacket" />
+          <h4>Men's Jacket</h4>
+          <p>$120</p>
+          <button onclick="alert('Add to cart coming soon')">Add to Cart</button>
+        </article>
+        <article class="product-card">
+          <img src="https://via.placeholder.com/220x180?text=Smartphone" alt="Smartphone" />
+          <h4>Smartphone</h4>
+          <p>$800</p>
+          <button onclick="alert('Add to cart coming soon')">Add to Cart</button>
+        </article>
+        <article class="product-card">
+          <img src="https://via.placeholder.com/220x180?text=Wooden+Sofa" alt="Wooden Sofa" />
+          <h4>Wooden Sofa</h4>
+          <p>$450</p>
+          <button onclick="alert('Add to cart coming soon')">Add to Cart</button>
+        </article>
+      </section>
+
+      <section class="about-us container">
+        <h2>About Us</h2>
+        <p>ShopBlackWhite is a curated black & white themed e-commerce platform designed for simplicity, elegance, and outstanding user experience.</p>
+      </section>
+
+      <section class="gallery container">
+        <img src="https://via.placeholder.com/220x140?text=Gallery+1" alt="Gallery 1" />
+        <img src="https://via.placeholder.com/220x140?text=Gallery+2" alt="Gallery 2" />
+        <img src="https://via.placeholder.com/220x140?text=Gallery+3" alt="Gallery 3" />
+      </section>
+
+      <section class="companies container">
+        <img src="https://via.placeholder.com/140x70?text=Company+1" alt="Company 1" class="company-logo" />
+        <img src="https://via.placeholder.com/140x70?text=Company+2" alt="Company 2" class="company-logo" />
+        <img src="https://via.placeholder.com/140x70?text=Company+3" alt="Company 3" class="company-logo" />
+      </section>
+
+      <section class="testimonial container">
+        <p>"ShopBlackWhite transformed how I shop online. Elegant and simple!"</p>
+        <cite>- Happy Customer</cite>
+      </section>
+    </section>
+
+    <!-- About Us Page -->
+    <section id="about" class="page hidden">
+      <section class="about-us container">
+        <h1>About Us</h1>
+        <p>ShopBlackWhite was founded with the idea to make online shopping elegant, simple, and accessible for everyone. We value user experience, design clarity, and quality.</p>
+      </section>
+    </section>
+
+    <!-- Privacy Policy Page -->
+    <section id="privacyPolicy" class="page hidden">
+      <section class="container">
+        <h1>Privacy Policy</h1>
+        <p>We take your privacy seriously. This page explains how we collect, use, and protect your personal information when you use our site.</p>
+        <ul>
+          <li>We do not share your personal data with third parties without your consent.</li>
+          <li>Our website uses cookies to improve your experience.</li>
+          <li>You can control cookies via your browser settings.</li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- Contact Us Page -->
+    <section id="contact" class="page hidden">
+      <section class="container">
+        <h1>Contact Us</h1>
+        <form onsubmit="event.preventDefault(); alert('Thank you, your message has been sent!'); this.reset();">
+          <label for="name">Name:</label>
+          <input id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input id="email" name="email" type="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </section>
+
+    <!-- Gallery Page -->
+    <section id="gallery" class="page hidden">
+      <section class="gallery container">
+        <h1>Gallery</h1>
+        <img src="https://via.placeholder.com/220x140?text=Gallery+1" alt="Gallery Image 1" />
+        <img src="https://via.placeholder.com/220x140?text=Gallery+2" alt="Gallery Image 2" />
+        <img src="https://via.placeholder.com/220x140?text=Gallery+3" alt="Gallery Image 3" />
+        <img src="https://via.placeholder.com/220x140?text=Gallery+4" alt="Gallery Image 4" />
+      </section>
+    </section>
+
+    <!-- Categories Page -->
+    <section id="categories" class="page hidden">
+      <section class="container">
+        <h1>Categories</h1>
+        <div class="categories">
+          <div class="category-item">Fashion</div>
+          <div class="category-item">Electronics</div>
+          <div class="category-item">Home & Living</div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Recent Orders Page -->
+    <section id="recentOrders" class="page hidden">
+      <section class="container">
+        <h1>Recent Orders</h1>
+        <p>List of recent orders will appear here.</p>
+      </section>
+    </section>
+
+    <!-- Cart Page -->
+    <section id="cart" class="page hidden">
+      <section class="container">
+        <h1>Your Cart</h1>
+        <p>Your cart is currently empty.</p>
+      </section>
+    </section>
+
+    <!-- Product Page -->
+    <section id="product" class="page hidden">
+      <section class="container">
+        <h1>View Product</h1>
+        <img src="https://via.placeholder.com/400x300?text=Product+Image" alt="Product Image" style="width:100%;max-width:400px; display:block; margin-bottom:20px;" />
+        <h2>Product Name</h2>
+        <p>Price: $99</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt.</p>
+        <button>Add to Cart</button>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+     <div>&copy; 2025 ShopBlackWhite. All rights reserved.</div>
+  <nav>
+    <a onclick="showPage('home')">Home</a> |
+    <a onclick="showPage('privacyPolicy')">Privacy Policy</a> |
+    <a onclick="showPage('contact')">Contact</a>
+  </nav>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // Simple single-page navigation simulation
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => {
+        if (page.id === pageId) {
+          page.classList.remove('hidden');
+        } else {
+          page.classList.add('hidden');
+        }
+      });
+
+      // Close nav menu on page change (for mobile)
+      navMenu.classList.remove('show');
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
